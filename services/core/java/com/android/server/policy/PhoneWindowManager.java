@@ -6721,6 +6721,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             // new state will be like STATE=HDMI=1
             return state.contains(HDMI_EXIST);
         }
+
+        @Override
+        public void takeAlternativeScreenshot() {
+            mScreenshotRunnable.setScreenshotType(TAKE_SCREENSHOT_FULLSCREEN);
+            mHandler.post(mScreenshotRunnable);
+        }
     }
 
 }
